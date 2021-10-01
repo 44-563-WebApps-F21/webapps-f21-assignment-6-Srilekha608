@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> 
+        WEB APPLICATIONS ASSIGNMENT 06 </title>
+</head>
+
+<body>
+    <h1> <b>Pass Phase by Srilekha Janagam</h1><b></h1>
+    <form><br><br>
+        <label for="Secret ">Enter the Secret Phrase</label>
+        <input type="password" id="Secret" value="Let me in"><br><br><br>
+
+        <label for="Check ">Enter a Phrase</label>
+        <input type="text" id="Check" value="Let me in"><br><br><br>
+
+        <input type="button" onclick="processPhrase()" value="Check the phrase">
+
+    </form>
+    <br><br>
+    <p id="result">Result</p>
+    <script>
+
+        function processPhrase() {
+            
+            var correct = 0;
+            var wrong = 0;
+            var result;
+            secret = document.getElementById("Secret").value;
+            check = document.getElementById("Check").value;
+            out = document.getElementById("result")
+
+              if (secret==check) {
+
+                correct = correct + 1;
+                alert("Access allowed");
+               out.innerHTML="Correct Count:"+correct
+
+
+             } else {
+                wrong = wrong + 1;
+                alert("Access denied");
+                out.innerHTML="Wrong Count:"+wrong
+
+            }
+
+        }//
+    </script>
+
+</body>
+
+</html>
+
+
