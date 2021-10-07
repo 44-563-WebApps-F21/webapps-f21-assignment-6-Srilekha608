@@ -13,40 +13,45 @@
             <input type="password" id="Secret" value="Let me in"><br><br><br>
 
             <label for="Check ">Enter a Phrase</label>
-            <input type="text" id="Check" value="Let me in"><br><br><br>
+            <input type="text" id="Check" value= ><br><br><br>
 
-            <input type="button" onclick="processPhrase()" value="Check the phrase">
+            <input type="button"  onclick="processPhrase()" value="Check the phrase">
 
         </form>
         <br><br>
         <p id="result">Result</p>
         <script>
-
-            function processPhrase() {
-
-                var correct = 0;
-                var wrong = 0;
-                var result;
-                secret = document.getElementById("Secret").value;
-                check = document.getElementById("Check").value;
-                out = document.getElementById("result")
-
-                if (secret == check) {
-
-                    correct = correct + 1;
-                    alert("Access allowed");
-                    out.innerHTML = "Correct Count:" + correct
-
-
-                } else {
-                    wrong = wrong + 1;
-                    alert("Access denied");
-                    out.innerHTML = "Wrong Count:" + wrong
-
+            correct=0;
+            wrong=0;
+            function processPhrase(){
+                console.log("Checking the phrase")
+                Secret=document.getElementById("Secret").value
+                Check=document.getElementById("Check").value
+                confirmed=confirm("Do you want to continue with phrase :"+Check)
+                out=document.getElementById("result")
+                if(confirmed){
+                    if(Secret==Check){
+                    correct++
+                    alert("Access allowed")
+                    out.innerHTML="Correct attempt "+correct}
+                    else{
+                    wrong++
+                    alert("Access denied")
+                    out.innerHTML="Wrong attempt"+wrong
+                    }
+        
                 }
-
+                else
+                out.innerHTML="please confirm"
+                while (wrong>=4) {
+                    alert("Account locked");                }
+                
+                
             }
-        </script>
+        
+                    
+    
+      </script>
         <div class="container">
             <img id="demo" src="image1.jpg" width="200px" height="200px">
             <input type="button" onclick="newImage()" value="click here">
